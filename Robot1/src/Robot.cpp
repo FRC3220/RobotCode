@@ -1,4 +1,4 @@
-#include "WPILib.h"
+#include "WPILib.h" //This is a test comment. Delete later
 
 class Robot: public IterativeRobot
 {
@@ -9,7 +9,7 @@ class Robot: public IterativeRobot
 
 public:
 	Robot() :
-		myRobot(0, 1),	//Remember to initialize things in the same order that they're declared
+		myRobot(0, 1, 2, 3),	//Remember to initialize things in the same order that they're declared
 		stick(0),
 		lw(LiveWindow::GetInstance()),
 		autoloopcounter(0)
@@ -17,7 +17,6 @@ public:
 		myRobot.SetExpiration(0.1);
 	}
 private:
-	LiveWindow *lw = LiveWindow::GetInstance();
 	SendableChooser *chooser;
 	const std::string autoNameDefault = "Default";
 	const std::string autoNameCustom = "My Auto";
@@ -70,7 +69,7 @@ private:
 
 	void TeleopPeriodic()
 	{
-
+		myRobot.ArcadeDrive(stick);
 	}
 
 	void TestPeriodic()
